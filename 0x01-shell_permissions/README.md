@@ -14,3 +14,5 @@
 Other users: all the permissions.
 * 9-John_Doe - sets mode of the file ```hello``` to: ```-rwxr-x-wx```
 * 10-mirror_permissions - sets ```olleh```'s mode to the same as ```hello```
+* 11-directories_permissions - 
+
