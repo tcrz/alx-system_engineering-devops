@@ -1,3 +1,3 @@
 ## Exploring Shell ##
 
-Understanding basic Shell commands and permissions
+Understanding basic Shell commands and permissions.
