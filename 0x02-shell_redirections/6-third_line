@@ -1,2 +1,2 @@
 #!/bin/bash
-head -13 lacta | tail +13
+head -13 /lacta | tail +13
