@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "obase=16; $binary" | bc
+printf '%x\n' $DECIMAL
