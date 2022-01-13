@@ -7,5 +7,5 @@
 
 for i in *
 do
-   echo "$i" | cut -c 3- 
+   echo "$i" | cut -d '-' -f2- 
 done
