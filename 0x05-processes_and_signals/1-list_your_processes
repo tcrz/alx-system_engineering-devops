@@ -6,4 +6,4 @@
 # Show process hierarchy
 
 
-ps -axjf
+ps -auxf
