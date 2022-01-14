@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # Bash script that displays To infinity and beyond indefinitely. With a sleep 2 in between each iterationI am invincible!!! when receiving a SIGTERM signal
 
+i="I am Invincible!!!"
 trap func SIGTERM
 
 function func(){
- echo "I am Invincible!!!"
+ echo "$i"
 }
 
 
