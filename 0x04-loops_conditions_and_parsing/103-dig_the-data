@@ -7,5 +7,5 @@
 #  In list format
 #  Ordered from the greatest to the lowest number of occurrences
 
-awk '{print $1" "$9}' apache-access.log | sort | uniq -c | sort -nr -k1
+awk '{print $1" "$9}' apache-access.log | sort | uniq -c | sort -nr
 
