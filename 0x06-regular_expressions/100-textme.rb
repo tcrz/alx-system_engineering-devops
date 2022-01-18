@@ -4,13 +4,8 @@
 a = false
 ARGV[0].scan(/(from|to|flags)(:)([\w+-:]+)/){
 |match|
-
-if a == true
-print ","
-end
+print "," if a==true
 print "#{match[2]}"
 a=true
 }
-
 print "\n"
-
