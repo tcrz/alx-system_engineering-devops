@@ -3,4 +3,3 @@
 
 
 ifconfig | grep "inet" | cut -d " " -f10 | sort -nr | head -n 2
-
