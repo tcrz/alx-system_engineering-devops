@@ -11,7 +11,7 @@ You must add:
 1 database (MySQL)
 
 Visual Representation:
-https://imgur.com/LwfBAud.png
+https://imgur.com/ZX4JzmX.png
 
 For every additional element, why you are adding it
 An extra server is added to allow more services and connections, supports to keep the system in working condition and to reduce the dependency of resources on single server.
