@@ -1,3 +1,18 @@
+
+
+Requirements:
+
+You must add:
+2 servers
+1 web server (Nginx)
+1 application server
+1 load-balancer (HAproxy)
+1 set of application files (your code base)
+1 database (MySQL)
+
+Visual Representation:
+https://imgur.com/LwfBAud.png
+
 For every additional element, why you are adding it
 An extra server is added to allow more services and connections, supports to keep the system in working condition and to reduce the dependency of resources on single server.
 
