@@ -1,4 +1,4 @@
-https://imgur.com/YqpnxbT.png
+https://imgur.com/UFzkSld.png
 
 Visual representation of LAMP stack with:
 1 server
@@ -25,3 +25,11 @@ To store, maintain  and organize information/data so that it can be easily acces
 
 What is the server using to communicate with the computer of the user requestings the website?
 HTTP
+
+issues are with this infrastructure:
+SPOF: Since there is only one server, if that server fails, the entire system will stop working
+
+Downtime when maintenance needed (like deploying new code web server needs to be restarted)
+
+Cannot scale if too much incoming traffic
+
