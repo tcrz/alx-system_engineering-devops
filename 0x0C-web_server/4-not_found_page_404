@@ -12,5 +12,5 @@ sudo sed -i "53s|.*|$redirect|" /etc/nginx/sites-enabled/default
 # creates custom 404 html page contaning a string
 sudo touch /var/www/html/error404.html
 echo "Ceci n'est pas une page" | sudo tee error404.html
-sudo sed -i "47s|.*| \n\terror_page 404 /error404.html;\n|" /etc/nginx/sites-enabled/default
+sudo sed -i "47s|.*| \n\terror_page 404 /error404.html;\n\tlocation = /error404.html {\nroot /var/www/html;\ninternal;\n}|" /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
