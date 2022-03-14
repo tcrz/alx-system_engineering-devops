@@ -3,6 +3,6 @@
 sudo apt-get -y install nginx
 sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
 sudo touch /var/www/html/error404.html
-echo "Ceci n'est pas une page" | sudo tee error404.html > /dev/null 2>&1
+echo "Ceci n'est pas une page" | sudo tee error404.html
 sudo sed -i '53s|.*|\n\terror_page 404 /error404.html;\n|' /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
