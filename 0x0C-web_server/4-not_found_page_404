@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+sudo apt-get -y install nginx
+sudo touch /var/www/html/error404.html
+echo "Ceci n'est pas une page" | sudo tee error404.html > /dev/null 2>&1
+sudo sed -i '53s|.*|\n\terror_page 404 /error404.html;\n|' /etc/nginx/sites-enabled/default
+sudo /etc/init.d/nginx restart
