@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
-# Configure Nginx server to give error 404 page
+# configures an Nginx server to have a custom 404 page that contains the string 'Ceci n'est pas une page'
+
 apt-get -y update
 apt-get -y install nginx
-# 1 Return a page Holberton School
-echo "Holberton School" | tee /var/www/html/index.html
-# 2 redirection page
-TEXT="location /redirect_me {\\n return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\\n}\\n"
-sudo sed -i "42i $TEXT" /etc/nginx/sites-available/default
-# 3 HTTP 404 error page inclu Ceci n'est pas une page
-echo "Ceci n'est pas une page" | tee /var/www/html/404.html
-CUSTOM="error_page 404 /404.html;\nlocation = /404.html {\nroot /var/www/html;\ninternal;\n}"
-sudo sed -i "/server_name _;/a $CUSTOM" /etc/nginx/sites-available/default
-service nginx restart
+ufw allow 'Nginx HTTP'
+echo 'Holberton School' > /var/www/html/index.nginx-debian.html
+sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+sed -i '/server_name _;/a error_page 404 /custom_404.html;\nlocation = /custom_404.html {\nroot /usr/share/nginx/html;\ninternal;\n}' /etc/nginx/sites-available/default
+service nginx start
+
