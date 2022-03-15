@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# fix page on docker container
+
+sudo apt -y install apache2
+service apache2 start
