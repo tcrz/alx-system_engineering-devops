@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
-# configures an Nginx server to have a custom 404 page that contains the string 'Ceci n'est pas une page'
+# Configure your Nginx server to have a custom 404 page
 
-apt-get -y update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo 'Holberton School' > /var/www/html/index.nginx-debian.html
-sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
-sed -i '/server_name _;/a error_page 404 /custom_404.html;\nlocation = /custom_404.html {\nroot /usr/share/nginx/html;\ninternal;\n}' /etc/nginx/sites-available/default
-service nginx start
+sudo apt-get -y install nginx
+# 1 Return a page with 'Hello World' text
+sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+
+# redirects /redirect_me to another page
+redirect="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/w>
+sudo sed -i "53s|.*|$redirect|" /etc/nginx/sites-enabled/default
+
+# creates custom 404 html page contaning a string
+#sudo touch /var/www/html/error404.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/error404.html
+sudo sed -i "47s|.*| \n\terror_page 404 /error404.html;\n\tlocation = /error404>
+sudo /etc/init.d/nginx restart
