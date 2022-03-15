@@ -6,11 +6,11 @@ sudo apt-get -y install nginx
 sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
 
 # redirects /redirect_me to another page
-redirect="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/w>
+redirect="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
 sudo sed -i "53s|.*|$redirect|" /etc/nginx/sites-enabled/default
 
 # creates custom 404 html page contaning a string
 #sudo touch /var/www/html/error404.html
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/error404.html
-sudo sed -i "47s|.*| \n\terror_page 404 /error404.html;\n\tlocation = /error404>
+sudo sed -i "47s|.*| \n\terror_page 404 /error404.html;\n\tlocation = /error404.html {\nroot /var/www/html;\ninternal;\n}|" /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
