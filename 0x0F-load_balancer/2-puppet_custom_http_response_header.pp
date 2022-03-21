@@ -5,21 +5,24 @@ package { 'nginx':
 }
 
 file_line { 'aaaaa':
-  ensure => 'present',
-  path   => '/etc/nginx/sites-available/default',
-  after  => 'listen 80 default_server;',
-  line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+  ensure  => 'present',
+  path    => '/etc/nginx/sites-available/default',
+  after   => 'listen 80 default_server;',
+  line    => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+  require => Package['nginx'],
 }
 
 file { '/var/www/html/index.html':
   content => 'Hello World!',
+  require => Package['nginx'],
 }
 
 file_line { 'add custom header':
-  ensure => 'present',
-  path   => '/etc/nginx/sites-enabled/default',
-  after  => ''listen 80 default_server;',
-  line   => 'add_header X-Served-By $hostname;',
+  ensure  => 'present',
+  path    => '/etc/nginx/sites-enabled/default',
+  after   => 'listen 80 default_server;',
+  line    => 'add_header X-Served-By $hostname;',
+  require => Package['nginx'],
 }
 
 service { 'nginx':
