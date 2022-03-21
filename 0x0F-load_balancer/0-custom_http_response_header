@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# add Custom Header 'X-Served-By' with hostname as value
+
+sudo sed -i '52 a \\t\tadd_header X-Served-By $hostname;' /etc/nginx/sites-enabled/default
+sudo service nginx restart
