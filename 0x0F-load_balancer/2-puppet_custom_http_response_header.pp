@@ -15,7 +15,7 @@ file { '/var/www/html/index.html':
   content => 'Hello World!',
 }
 
-file{ 'add custom header':
+file_line { 'add custom header':
   ensure => 'present',
   path   => '/etc/nginx/sites-enabled/default',
   after  => 'location / {',
