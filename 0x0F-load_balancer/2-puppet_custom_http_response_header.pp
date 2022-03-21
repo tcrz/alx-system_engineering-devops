@@ -18,7 +18,7 @@ file { '/var/www/html/index.html':
 file_line { 'add custom header':
   ensure => 'present',
   path   => '/etc/nginx/sites-enabled/default',
-  after  => 'location / {',
+  after  => ''listen 80 default_server;',
   line   => 'add_header X-Served-By $hostname;',
 }
 
