@@ -5,6 +5,11 @@
 sudo apt-get -y install nginx
 # update contents of index file
 sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+
+# redirects /redirect_me to another page
+redirect="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+sudo sed -i "53s|.*|$redirect|" /etc/nginx/sites-enabled/default
+
 # add custom header
 sudo sed -i '52 a \\t\tadd_header X-Served-By $hostname;' /etc/nginx/sites-enabled/default
 # restart nginx
