@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # add Custom Header 'X-Served-By' with hostname as value
 
+sudo apt-get -y install nginx
+sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
 sudo sed -i '52 a \\t\tadd_header X-Served-By $hostname;' /etc/nginx/sites-enabled/default
 sudo service nginx restart
