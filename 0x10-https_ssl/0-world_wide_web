@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 
+# prints subdomains and their respective IP addresses 
 
 func () {
  if [ "$#" -ge 2 ]
