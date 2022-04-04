@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# runs nginx as 'nginx' user 
+
+sudo sed -i '1 a user nginx;' /etc/nginx/nginx.conf
+sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
+service apache2 stop
+service nginx restart
