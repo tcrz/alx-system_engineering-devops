@@ -1,3 +1,1 @@
-## Exploring Shell ##
-
-Understanding basic Shell commands and permissions.
+## System engineering devops ##
