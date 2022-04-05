@@ -3,5 +3,5 @@
 
 chmod 755 /etc/nginx/nginx.conf
 sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
-kill -9 "$(pidof apache2)"
+pkill -f "apache2"
 sudo -u nginx service nginx restart
