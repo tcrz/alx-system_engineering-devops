@@ -2,6 +2,6 @@
 # runs nginx as 'nginx' user 
 
 sudo sed -i '1 a user nginx;' /etc/nginx/nginx.conf
-#sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
-#kill -9 "$(pidof apache2)"
+sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
+pkill -f "apache2"
 service nginx restart
