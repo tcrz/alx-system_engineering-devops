@@ -12,10 +12,16 @@ if __name__ == "__main__":
     user_name = user_req.json().get("name")
     tasks_req = requests.get("https://jsonplaceholder.typicode.com/todos")
     total_tasks = 0
+    cmp_tasks = 0
     cmp_tasks_desc = ""
-    with open("2.csv", 'w', encoding='utf=8') as file:
+    file_csv = sys.argv[1] + ".csv"
+    with open(file_csv, 'w', encoding='utf=8') as file:
         write = csv.writer(file, delimiter=",", quoting=csv.QUOTE_ALL)
         for each in tasks_req.json():
             if each["userId"] == int(sys.argv[1]):
+                total_tasks += 1
+                if each["completed"] is True:
+                    cmp_tasks += 1
+                    cmp_tasks_desc += "\t {}\n".format(each["title"])
                 write.writerow([each["userId"], user_name, each["completed"],
                                 each["title"]])
