@@ -20,7 +20,8 @@ if __name__ == "__main__":
                 each.update([("task", each["title"])])
                 each.pop("title")
                 value_list.append(each)
-                json_data[user["id"]] = value_list
+        json_data[user["id"]] = value_list
+        value_list = []
 
     with open("todo_all_employees.json", 'w', encoding='utf=8') as file:
-        json.dump(json_data, file)
+        json.dump(json_data, file, indent=4)
