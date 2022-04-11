@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-"""gathers data from an API (for a single employee) and exports it to JSON file
-    Format: { "USER_ID": [{"task": "TASK_TITLE", 
+"""
+Gathers data from an API (for a single employee)
+and exports it to JSON file
+Format: { "USER_ID": [{"task": "TASK_TITLE",
     "completed": TASK_COMPLETED_STATUS,"username": "USERNAME"},
     {"task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS,
     "username": "USERNAME"},
     ... ]}
+File name must be: USER_ID.json
 """
 
 
