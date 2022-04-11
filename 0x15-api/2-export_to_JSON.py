@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""gathers data from an API and exports it to CSV file"""
+"""gathers data from an API and exports it to JSON file"""
 
 
 if __name__ == "__main__":
@@ -12,9 +12,6 @@ if __name__ == "__main__":
     user_name = user_req.json().get("username")
     user_id = user_req.json().get("id")
     tasks_req = requests.get("https://jsonplaceholder.typicode.com/todos")
-    total_tasks = 0
-    cmp_tasks = 0
-    cmp_tasks_desc = ""
     file_json = str(user_id) + ".json"
     json_data = {}
     value_list = []
@@ -29,4 +26,4 @@ if __name__ == "__main__":
     json_data[user_id] = value_list
 
     with open(file_json, 'w', encoding='utf=8') as file:
-        json.dump(json_data, file)
+        json.dump(json_data, file, indent=4)
