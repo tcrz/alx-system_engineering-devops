@@ -9,8 +9,8 @@ if __name__ == "__main__":
     user_req = requests.get("https://jsonplaceholder.typicode.com/users/{}".
                             format(sys.argv[1]))
     user_name = user_req.json().get("name")
-    tasks_req = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}".
-                             format(sys.argv[1]))
+    tasks_req = requests.get("""https://jsonplaceholder.typicode.com/todos?
+                             userId={}""".format(sys.argv[1]))
     total_tasks = len(tasks_req.json())
     cmp_tasks = 0
     cmp_tasks_desc = ""
