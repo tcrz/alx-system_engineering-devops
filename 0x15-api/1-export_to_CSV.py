@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     user_req = requests.get("https://jsonplaceholder.typicode.com/users/{}".
                             format(sys.argv[1]))
-    user_name = user_req.json().get("name")
+    user_name = user_req.json().get("username")
     tasks_req = requests.get("https://jsonplaceholder.typicode.com/todos")
     total_tasks = 0
     cmp_tasks = 0
