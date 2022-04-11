@@ -1,5 +1,12 @@
 #!/usr/bin/python3
-"""gathers data from an API and exports it to JSON file"""
+"""gathers data from an API and exports it to JSON file
+Records all tasks from all employees
+Format must be: 
+    { "USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS},
+    {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ... ],
+    "USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS},
+    {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ... ]}
+"""
 
 
 if __name__ == "__main__":

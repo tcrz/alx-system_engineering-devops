@@ -1,5 +1,11 @@
 #!/usr/bin/python3
-"""gathers data from an API and exports it to JSON file"""
+"""gathers data from an API (for a single employee) and exports it to JSON file
+    Format: { "USER_ID": [{"task": "TASK_TITLE", 
+    "completed": TASK_COMPLETED_STATUS,"username": "USERNAME"},
+    {"task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS,
+    "username": "USERNAME"},
+    ... ]}
+"""
 
 
 if __name__ == "__main__":
