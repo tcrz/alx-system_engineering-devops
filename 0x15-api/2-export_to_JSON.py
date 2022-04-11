@@ -29,4 +29,4 @@ if __name__ == "__main__":
     json_data[user_id] = value_list
 
     with open(file_json, 'w', encoding='utf=8') as file:
-        json.dump(json_data, file, indent=4)
+        json.dump(json_data, file)
