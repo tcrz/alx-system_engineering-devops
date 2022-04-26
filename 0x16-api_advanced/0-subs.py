@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+"""
+queries the Reddit API
+"""
 import requests
-import sys
 
 
 def number_of_subscribers(subreddit):
@@ -16,6 +18,7 @@ def number_of_subscribers(subreddit):
     return 0
 
 # Uncomment to Test function:
+# import sys
 # number_of_subscribers = __import__('0-subs').number_of_subscribers
 # if len(sys.argv) < 2:
 #     print("Please pass an argument for the subreddit to search.")
