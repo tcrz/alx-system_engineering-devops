@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """
-queries the Reddit API and prints the titles of the
-all hot posts recursively
+recursive function that queries the Reddit API and returns a list
+containing the titles of the all hot posts recursively
 """
 import requests
 
 
 def recurse(subreddit, hot_list=[]):
-    """queries the Reddit API and prints the titles of the
-all hot posts recursively"""
+    """sets base url and calls recursive function to return
+    list of all titles"""
     url = "https://www.reddit.com/r/{}/hot.json?after=".format(subreddit)
     r = requests.get(url, allow_redirects=False,
                      headers={'User-Agent': 'My User Agent 1.0'})
@@ -22,6 +22,7 @@ all hot posts recursively"""
 
 
 def getpage(subreddit, url, after, hot_list=[]):
+    """recursively retrieves data on next page if available"""
     next_page = url + after
     r = requests.get(next_page + "&limit=100", allow_redirects=False,
                      headers={'User-Agent': 'My User Agent 1.0'})
