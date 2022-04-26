@@ -9,7 +9,7 @@ import requests
 def count_words(subreddit, word_list, hot_list=[]):
     """sets base url and calls recursive function to return
     list of all titles"""
-    word_dict = dict.fromkeys(word_list, 0)
+    word_dict = dict.fromkeys([x.casefold() for x in word_list], 0)
     url = "https://www.reddit.com/r/{}/hot.json?after=".format(subreddit)
     r = requests.get(url, allow_redirects=False,
                      headers={'User-Agent': 'My User Agent 1.0'})
@@ -22,11 +22,15 @@ def count_words(subreddit, word_list, hot_list=[]):
         for key in word_dict:
             for titles in hot_list:
                 for word in titles.split():
-                    if key.casefold() == word.casefold():
+                    if key == word.casefold():
                         word_dict[key] += 1
-        print(word_dict)
+        word_dict = sorted(word_dict.items(),
+                           key=lambda word_dict: word_dict[1], reverse=True)
+        for results in word_dict:
+            if results[1] != 0:
+                print(results[0] + ':', results[1])
     else:
-        return None
+        return
 
 
 def getpage(subreddit, url, after, hot_list=[]):
@@ -46,7 +50,6 @@ def getpage(subreddit, url, after, hot_list=[]):
 
 # Uncomment to Test function:
 # import sys
-# count_words = __import__('100-count').count_words
 # if len(sys.argv) < 3:
 #     print("Usage: {} <subreddit> <list of keywords>".format(sys.argv[0]))
 #     print("Ex: {} programming 'python java javascript'".format(sys.argv[0]))
