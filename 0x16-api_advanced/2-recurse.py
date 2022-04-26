@@ -15,6 +15,8 @@ def recurse(subreddit, hot_list=[]):
     if r.status_code == 200:
         data = r.json()
         after = data["data"]["after"]
+        for child in data["data"]["children"]:
+            hot_list.append(child["data"]["title"])
         getpage(subreddit, url, after, hot_list)
         return hot_list
     else:
@@ -26,8 +28,6 @@ def getpage(subreddit, url, after, hot_list=[]):
     next_page = url + after
     r = requests.get(next_page + "&limit=100", allow_redirects=False,
                      headers={'User-Agent': 'My User Agent 1.0'})
-    if r.status_code != 200:
-        return
     data = r.json()
     next = data["data"]["after"]
     for child in data["data"]["children"]:
