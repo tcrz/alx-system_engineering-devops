@@ -6,4 +6,6 @@ The goal of this project is to make an nginx web server respond to a lot of requ
 ## Table of contents
 Files | Description
 ----- | -----------
-[0-the_sky_is_the_limit_not.pp](./0-the_sky_is_the_limit_not.pp) | Puppet manifest to finx nginx to get it to have 0 request failed
+[0-the_sky_is_the_limit_not.pp](./0-the_sky_is_the_limit_not.pp) | Puppet manifest to find nginx to get it to have 0 request failed
+[1-user_limit.pp](./1-user_limit.pp) | Puppet manifest to fix login with the holberton user and open a file without any error message.
+
